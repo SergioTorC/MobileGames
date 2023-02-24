@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Games</string>
+    <string name="menu">MAIN MENU</string>
+    <string name="menu_item_settings">Settings</string>
+    <string name="menu_item_play">Select Game</string>
+    <string name="menu_item_scores">View Scores</string>
+    <string name="menu_item_help">Help</string>
+    <string name="todo">TODO</string>
+    <string name="textview">TextView</string>
+    <string name="titulo1">Mini</string>
+    <string name="titulo2">GAMES</string>
+
+    <string name="title2048">2048</string>
+    <string name="game_title">Example text</string>
+    <string name="cancel">Cancel</string>
+    <string name="dialog_msg">¿Otra vez?</string>
+    <string name="new_game">New Game</string>
+    <string name="score">SCORE</string>
+    <string name="score_example">1024</string>
+    <string name="play_new_game">Play New Game</string>
+    <string name="manage_scores">Ver Scores</string>
+    <string name="_2048_logo">2048 Logo</string>
+    <string name="welcome_to_my_2048_game">BIENVENIDO A MI 2048</string>
+    <string name="time">Time :</string>
+    <string name="slogan">Junta los números para conseguir el 2048</string>
+    <string name="example_text">Example text</string>
+    <string name="put_your_name">Pon tu nombre :</string>
+    <string name="name">Nombre</string>
+    <string name="search_button">Buscar</string>
+    <string name="search_by_score">Buscar por Score</string>
+    <string name="search_by_name">Buscar por Nombre</string>
+    <string name="gameName">2048</string>
+    <string name="scoreButton">Score</string>
+    <string name="timeButton">Tiempo</string>
+    <string name="updateButton">Update</string>
+    <string name="deleteButton">Borrar</string>
+    <string name="idString">Id :</string>
+    <string name="nameString">Nombre :</string>
+    <string name="scoreString">Score :</string>
+    <string name="timeString">Tiempo :</string>
+    <string name="delete">Delete</string>
+
+    <string name="easy">Easy</string>
+    <string name="lights_out">Lights Out!</string>
+    <string name="hard">Hard</string>
+    <string name="medium">Medium</string>
+    <string name="retry_puzzle">Retry Puzzle</string>
+    <string name="new_puzzle">New Puzzle</string>
+    <string name="moves">Moves:</string>
+    <string name="xx">XX</string>
+    <string name="goal">Goal:</string>
+    <string name="points">Points:</string>
+</resources>
