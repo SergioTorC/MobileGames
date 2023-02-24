@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="20dp"
     android:background="@drawable/rio_murcia"
-    tools:context="com.example.lesson8menu.SelectorActivity">
+    tools:context="com.example.gamestesting.SelectorActivity">
 
     <ImageButton
         android:id="@+id/imageButton3"

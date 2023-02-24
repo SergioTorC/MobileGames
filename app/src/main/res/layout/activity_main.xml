@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rio_murcia"
-    tools:context="com.example.lesson8menu.MainActivity">
+    tools:context="com.example.gamestesting.MainActivity">
 
     <RelativeLayout
         android:id="@+id/Relative01"

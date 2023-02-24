@@ -27,14 +27,14 @@
                 android:textColor="#ece8e4"
                 />
 
-        <com.example.game2048test.ScoreBoxView
+        <com.example.gamestesting.game2048test.ScoreBoxView
                 android:id="@+id/main_actual_score"
                 android:layout_toLeftOf="@+id/main_scoreboxview_best"
                 custom:label_text="Score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-        <com.example.game2048test.ScoreBoxView
+        <com.example.gamestesting.game2048test.ScoreBoxView
                 android:id="@+id/main_scoreboxview_best"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="5dp"
@@ -83,7 +83,7 @@
     </LinearLayout>
 
 
-    <com.example.game2048test.MatrixView
+    <com.example.gamestesting.game2048test.MatrixView
             android:id="@+id/matrix_view"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
