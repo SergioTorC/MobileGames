@@ -1,4 +1,4 @@
-package com.example.gamestesting.game2048test.dbScores;
+package com.example.gamestesting.game2048.dbScores;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

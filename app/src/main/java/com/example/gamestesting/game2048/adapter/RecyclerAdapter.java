@@ -1,4 +1,4 @@
-package com.example.gamestesting.game2048test.adapter;
+package com.example.gamestesting.game2048.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gamestesting.R;
-import com.example.gamestesting.game2048test.Score;
+import com.example.gamestesting.game2048.Score;
 
 import java.util.List;
 

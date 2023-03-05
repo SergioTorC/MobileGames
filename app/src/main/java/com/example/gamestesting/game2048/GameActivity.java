@@ -1,4 +1,4 @@
-package com.example.gamestesting.game2048test;
+package com.example.gamestesting.game2048;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -25,7 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gamestesting.Help;
 import com.example.gamestesting.R;
 import com.example.gamestesting.SelectorActivity;
-import com.example.gamestesting.game2048test.dbScores.ScoreDbHelper;
+import com.example.gamestesting.game2048.dbScores.ScoreDbHelper;
 
 
 public class GameActivity extends AppCompatActivity implements View.OnTouchListener {

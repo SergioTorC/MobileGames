@@ -1,4 +1,4 @@
-package com.example.gamestesting.game2048test;
+package com.example.gamestesting.game2048;
 
 import android.content.Context;
 import android.util.AttributeSet;

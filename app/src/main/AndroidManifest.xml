@@ -28,10 +28,10 @@
         </activity>
         <activity android:name=".SelectorActivity" />
         <activity android:name=".Help" />
-        <activity android:name="com.example.gamestesting.game2048test.SplashScreen" />
-        <activity android:name="com.example.gamestesting.game2048test.Menu2048" />
-        <activity android:name="com.example.gamestesting.game2048test.GameActivity" />
-        <activity android:name="com.example.gamestesting.game2048test.ScoreManagement" />
+        <activity android:name="com.example.gamestesting.game2048.SplashScreen" />
+        <activity android:name="com.example.gamestesting.game2048.Menu2048" />
+        <activity android:name="com.example.gamestesting.game2048.GameActivity" />
+        <activity android:name="com.example.gamestesting.game2048.ScoreManagement" />
 
         <activity android:name=".lightout.StartLightOut" />
         <activity android:name=".lightout.HardGame" />

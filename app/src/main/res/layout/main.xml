@@ -27,7 +27,7 @@
             android:textStyle="bold"
             tools:ignore="RelativeOverlap,RtlHardcoded" />
 
-        <com.example.gamestesting.game2048test.ScoreBoxView
+        <com.example.gamestesting.game2048.ScoreBoxView
             android:id="@+id/main_actual_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_toLeftOf="@id/main_best_score"
             custom:label_text="Score" />
 
-        <com.example.gamestesting.game2048test.ScoreBoxView
+        <com.example.gamestesting.game2048.ScoreBoxView
             android:id="@+id/main_best_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
     </LinearLayout>
 
 
-    <com.example.gamestesting.game2048test.MatrixView
+    <com.example.gamestesting.game2048.MatrixView
         android:id="@+id/matrix_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

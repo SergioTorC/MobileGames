@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gamestesting.game2048test.ScoreManagement;
-import com.example.gamestesting.game2048test.SplashScreen;
+import com.example.gamestesting.game2048.ScoreManagement;
+import com.example.gamestesting.game2048.SplashScreen;
 import com.example.gamestesting.lightout.StartLightOut;
 
 public class SelectorActivity extends AppCompatActivity {
