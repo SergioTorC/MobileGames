@@ -51,4 +51,7 @@
     <string name="goal">Goal:</string>
     <string name="points">Points:</string>
     <string name="id">Id :</string>
+    <string name="github">Github</string>
+    <string name="twitter">Twitter</string>
+    <string name="instagram">Instagram</string>
 </resources>

@@ -28,9 +28,8 @@ public class MediumGame extends AppCompatActivity {
         setContentView(R.layout.activity_medium_game);
 
         SharedPreferences prefs = this.getSharedPreferences("prefsKey", Context.MODE_PRIVATE);
-        score = prefs.getInt("points", 0); // Retrieves the user's current score
-        
-        // Initializes the button array
+        score = prefs.getInt("points", 0);
+
         buttons = new ImageButton[5][5];
         buttons[0][0] = findViewById(R.id.imageButton17);
         buttons[0][1] = findViewById(R.id.imageButton18);
@@ -72,8 +71,6 @@ public class MediumGame extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v) {
         switch (v.getId()) {
-            // We determine which button was selected and insert the current user there.
-            // The first set is buttons on the game board, which clicks their corresponding button
             case R.id.imageButton17:
                 game.click(0, 0);
                 break;
@@ -149,30 +146,30 @@ public class MediumGame extends AppCompatActivity {
             case R.id.imageButton41:
                 game.click(4, 4);
                 break;
-            case R.id.button6: // Button to create a new puzzle (giving up)
+            case R.id.button6:
                 game = new GameController(buttons, moves, points, score);
-                while (game.hasWon()){ // Ensures a winning puzzle isn't used
+                while (game.hasWon()){
                     game = new GameController(buttons, moves, points, score);
                 }
-                game.updateView(); // Updates the view
+                game.updateView();
                 break;
-            case R.id.button10: // Retries the game
+            case R.id.button10:
                 game.retryBoard();
                 game.updateView();
                 break;
         }
-        if (game.hasWon()){ // Occurs if a game is won
-            mpWin.start(); // Plays a sound.
+        if (game.hasWon()){
+            mpWin.start();
             SharedPreferences prefs = this.getSharedPreferences("prefsKey", Context.MODE_PRIVATE);
 
-            int score = prefs.getInt("points", 0); // Retrieves the user's current score
-            score = score + 25 + game.getBonusPoints(); // 25 points are awarded by default, with 5 extra for beating under the minimum number of moves
+            int score = prefs.getInt("points", 0);
+            score = score + 25 + game.getBonusPoints();
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("points", score); // Replaces the score with the increased amount.
+            editor.putInt("points", score);
             editor.apply();
 
-            // Displays a message based on the user's moves
-            if (game.getBonusPoints() > 0){ Toast.makeText(getApplicationContext(),"You beat this Medium level within the minimum number of moves! +30 points.",Toast.LENGTH_LONG).show(); }
+
+            if (game.getBonusPoints() > 0){ Toast.makeText(getApplicationContext(),"You beat this Medium level! +25 points.",Toast.LENGTH_LONG).show(); }
             else { Toast.makeText(getApplicationContext(),"You beat this Medium level! +25 points.",Toast.LENGTH_LONG).show(); }
 
             this.score = score;

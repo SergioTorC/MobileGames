@@ -7,26 +7,25 @@ import android.widget.TextView;
 import com.example.gamestesting.R;
 
 public class GameController {
-    // Instance variables
-    Board board; // Representation of the board.
-    Board copyOfBoard; // An identical copy of the original version of the board.
-    Cell[][] cells; // Contains the cells appearing on the board (to display them)
-    ImageButton[][] buttons; // Table of the buttons used in the game.
-    TextView moves; // Display of the number of moves completed
+    Board board;
+    Board copyOfBoard;
+    Cell[][] cells;
+    ImageButton[][] buttons;
+    TextView moves;
     TextView points;
     int pointCount;
 
 
     public GameController(ImageButton[][] buttonsArray, TextView moves, TextView points, int pointCount){
-        buttons = buttonsArray; // Initializes the buttons array.
-        board = new Board(buttons.length, buttons[0].length); // Creates a board object of the desired size (matching the buttons table)
+        buttons = buttonsArray;
+        board = new Board(buttons.length, buttons[0].length); // Crea un objeto de tablero del tamaño deseado (coincidiendo con la tabla de botones)
         board.randomize();
-        copyOfBoard = new Board(board); // Creates a copy of the board in case the user wishes to reset.
+        copyOfBoard = new Board(board); // Crea una copia del tablero en caso de que el usuario desee reiniciar.
 
-        this.moves = moves; // Sets the location to display the number of moves.
+        this.moves = moves; // Establece la ubicación para mostrar el número de movimientos.
         this.points = points;
         this.pointCount = pointCount;
-        updateView(); // Updates the view so the cells match the board.
+        updateView(); // Actualiza la vista para que las celdas coincidan con el tablero.
     }
 
 
@@ -34,17 +33,17 @@ public class GameController {
     public void updateView(){
         for (int i = 0; i < buttons.length; i++){
             for (int j = 0; j < buttons[i].length; j++) {
-                // If the cells are on and active
+                // Si las celdas están encendidas
                 if (board.getPos(i,j).getOn()){
-                    buttons[i][j].setImageResource(R.drawable.lighton2); // Image of the button being on is displayed
+                    buttons[i][j].setImageResource(R.drawable.lighton2);
                 }
-                // If the cells are off and active
+                // Si las celdas están apagadas
                 else if (!board.getPos(i,j).getOn()){
-                    buttons[i][j].setImageResource(R.drawable.lightoff2); // Image of the button being off is displayed
+                    buttons[i][j].setImageResource(R.drawable.lightoff2);
                 }
             }
         }
-        moves.setText(Integer.toString(board.getMoves())); // Displays the current number of moves
+        moves.setText(Integer.toString(board.getMoves())); // Muestra el número actual de movimientos
         points.setText(Integer.toString(pointCount));
     }
 
@@ -53,8 +52,8 @@ public class GameController {
     }
 
     public void click(int i, int j){
-        board.click(i,j); // Clicks the position on the board
-        updateView(); // Updates the view to reflect the change.
+        board.click(i,j); // Hace clic en la posición en el tablero
+        updateView(); // Actualiza la vista para reflejar el cambio.
     }
 
     public int getMoves(){
@@ -63,7 +62,7 @@ public class GameController {
 
     public void retryBoard(){
         board = copyOfBoard;
-        copyOfBoard = new Board(copyOfBoard); // Uses the copy constructor to create a new board.
+        copyOfBoard = new Board(copyOfBoard); // Utiliza el constructor de copia para crear un nuevo tablero.
     }
 
     public void setMoves(int moves){

@@ -15,10 +15,10 @@ public class SwipeListener implements View.OnTouchListener {
 
     private final SwipeDirection swipeDirection;
 
-    private MediaPlayer slideUp;
-    private MediaPlayer slideDown;
-    private MediaPlayer slideLeft;
-    private MediaPlayer slideRight;
+    private final MediaPlayer slideUp;
+    private final MediaPlayer slideDown;
+    private final MediaPlayer slideLeft;
+    private final MediaPlayer slideRight;
 
 
     public SwipeListener(Context context, SwipeDirection swipeDirection) {

@@ -1,8 +1,7 @@
 package com.example.gamestesting.lightout;
 
 public class Cell {
-    // Instance variables
-    private boolean isOn; // Indicates whether the cell is on/off in the current game.
+    private boolean isOn;
 
     public Cell(boolean light){
         isOn = light;
@@ -13,8 +12,8 @@ public class Cell {
     }
 
     public void toggleLight(){
-        // If a light is on, it gets turned off.
-        // Inversely, if a light is off, it gets turned on.
+        // Si una luz está encendida, se apaga.
+        // A la inversa, si una luz está apagada, se enciende.
         setOn(!isOn);
     }
     public boolean getOn(){
@@ -26,7 +25,6 @@ public class Cell {
     }
 
     public String toString(){
-        String s = "(" + isOn + ")";
-        return s;
+        return "(" + isOn + ")";
     }
 }

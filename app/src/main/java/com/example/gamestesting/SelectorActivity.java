@@ -44,7 +44,8 @@ public class SelectorActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.help:
-                Toast.makeText(this, "4", Toast.LENGTH_LONG ).show();
+                intent = new Intent(SelectorActivity.this, Help.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

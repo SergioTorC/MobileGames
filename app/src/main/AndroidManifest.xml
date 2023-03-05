@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -25,13 +26,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name="com.example.gamestesting.SelectorActivity"/>
-        <activity android:name="com.example.gamestesting.game2048test.SplashScreen"/>
+        <activity android:name=".SelectorActivity" />
+        <activity android:name=".Help" />
+        <activity android:name="com.example.gamestesting.game2048test.SplashScreen" />
         <activity android:name="com.example.gamestesting.game2048test.Menu2048" />
         <activity android:name="com.example.gamestesting.game2048test.GameActivity" />
         <activity android:name="com.example.gamestesting.game2048test.ScoreManagement" />
 
-        <activity android:name=".lightout.StartLightOut"/>
+        <activity android:name=".lightout.StartLightOut" />
         <activity android:name=".lightout.HardGame" />
         <activity android:name=".lightout.MediumGame" />
         <activity android:name=".lightout.EasyGame" />

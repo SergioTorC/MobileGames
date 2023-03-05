@@ -2,11 +2,14 @@ package com.example.gamestesting.game2048test;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -16,9 +19,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gamestesting.Help;
 import com.example.gamestesting.R;
+import com.example.gamestesting.SelectorActivity;
 import com.example.gamestesting.game2048test.dbScores.ScoreDbHelper;
 
 
@@ -227,5 +233,33 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         return swipeListener.getGestureDetector().onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_bar, menu);
+        return true;
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.Select:
+                intent = new Intent(GameActivity.this, SelectorActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.Score:
+                intent = new Intent(GameActivity.this, ScoreManagement.class);
+                startActivity(intent);
+                return true;
+            case R.id.help:
+                intent = new Intent(GameActivity.this, Help.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -26,9 +26,7 @@
             android:layout_alignParentTop="true"
             android:contentDescription="@string/todo"
             android:src="@drawable/limon"
-            tools:ignore="MissingConstraints,ImageContrastCheck"
-            android:layout_alignParentLeft="true"
-            android:layout_alignLeft="@id/titulo1" />
+            tools:ignore="MissingConstraints,ImageContrastCheck" />
 
         <TextView
             android:id="@+id/titulo1"
@@ -39,7 +37,7 @@
             android:fontFamily="@font/fascinate_inline"
             android:shadowColor="#A59393"
             android:text="@string/titulo1"
-            android:textColor="#CC2323"
+            android:textColor="#FFFFFF"
             android:textSize="@dimen/screen_title_size"
             tools:ignore="RelativeOverlap,SpUsage"
 
@@ -54,7 +52,7 @@
             android:fontFamily="@font/fascinate_inline"
             android:shadowColor="#A59393"
             android:text="@string/titulo2"
-            android:textColor="#CC2323"
+            android:textColor="#FFFFFF"
             android:textSize="@dimen/screen_title_size"
             tools:ignore="RelativeOverlap,SpUsage" />
 

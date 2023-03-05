@@ -28,7 +28,7 @@ public class EasyGame extends AppCompatActivity {
         setContentView(R.layout.activity_easy_game);
 
         SharedPreferences prefs = this.getSharedPreferences("prefsKey", Context.MODE_PRIVATE);
-        score = prefs.getInt("points", 0); // Retrieves the user's current score
+        score = prefs.getInt("points", 0); // Recupera la puntuación actual del usuario
 
         // Initializes the button array
         buttons = new ImageButton[4][4];
@@ -61,8 +61,8 @@ public class EasyGame extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v) {
         switch (v.getId()) {
-            // We determine which button was selected and insert the current user there.
-            // The first set is buttons on the game board, which clicks their corresponding button
+            // Determinamos qué botón se seleccionó e insertamos el usuario actual allí.
+            // El primer conjunto son los botones en el tablero de juego, que hace clic en su botón correspondiente
             case R.id.imageButton:
                 game.click(0,0);
                 break;
@@ -111,32 +111,32 @@ public class EasyGame extends AppCompatActivity {
             case R.id.imageButton16:
                 game.click(3,3);
                 break;
-            case R.id.button4: // Button to create a new puzzle (giving up)
+            case R.id.button4: // Botón para crear un nuevo rompecabezas (rendirse)
                 game = new GameController(buttons, moves,  points, score);
-                while (game.hasWon()){ // Ensures a winning puzzle isn't used.
+                while (game.hasWon()){ // Garantiza que no se utilice un rompecabezas ganador.
                     game = new GameController(buttons, moves, points, score);
                 }
-                game.updateView(); // Updates the view
+                game.updateView(); // Actualiza la vista
                 break;
-            case R.id.button9: // Button to retry the puzzle.
+            case R.id.button9: // Botón para volver a intentar el rompecabezas.
                 game.retryBoard();
-                game.updateView(); // Updates the view
+                game.updateView();
                 break;
         }
 
-        // When a user wins the game, this code is run.
+        // Cuando un usuario gana el juego, este código se ejecuta.
         if (game.hasWon()){
             mpWin.start(); // Plays a sound.
             SharedPreferences prefs = this.getSharedPreferences("prefsKey", Context.MODE_PRIVATE);
 
-            int score = prefs.getInt("points", 0); // Retrieves the user's current score
-            score = score + 10 + game.getBonusPoints(); // 10 points are awarded by default for easy games, with 5 extra for beating under the minimum number of moves
+            int score = prefs.getInt("points", 0); // Recupera la puntuación actual del usuario
+            score = score + 10 + game.getBonusPoints(); // Se otorgan 10 puntos por defecto para juegos fáciles.
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("points", score); // Replaces the score with the increased amount.
+            editor.putInt("points", score); // Reemplaza la puntuación con la cantidad aumentada.
             editor.apply();
 
-            if (game.getBonusPoints() > 0){ Toast.makeText(getApplicationContext(),"You beat this Easy level within the minimum number of moves! +15 points.",Toast.LENGTH_LONG).show(); }
-            else { Toast.makeText(getApplicationContext(),"You beat this Easy level! +10 points.",Toast.LENGTH_LONG).show(); }
+            if (game.getBonusPoints() > 0){ Toast.makeText(getApplicationContext(),"¡Has superado este nivel Fácil! +10 puntos.",Toast.LENGTH_LONG).show(); }
+            else { Toast.makeText(getApplicationContext(),"¡Has superado este nivel Fácil! +10 puntos.",Toast.LENGTH_LONG).show(); }
 
             this.score = score;
             game.updatePoints(score);

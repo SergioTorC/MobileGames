@@ -29,9 +29,8 @@ public class HardGame extends AppCompatActivity {
         setContentView(R.layout.activity_hard_game);
 
         SharedPreferences prefs = this.getSharedPreferences("prefsKey", Context.MODE_PRIVATE);
-        score = prefs.getInt("points", 0); // Retrieves the user's current score
+        score = prefs.getInt("points", 0);
 
-        // Initializes the button array
         buttons = new ImageButton[7][6];
         buttons[0][0] = findViewById(R.id.imageButton42);
         buttons[0][1] = findViewById(R.id.imageButton43);
@@ -91,10 +90,6 @@ public class HardGame extends AppCompatActivity {
         game.updateView();
     }
 
-    /**
-     * Occurs when any button is clicked. Determines what button was chosen and performs a related action.
-     * @param v
-     */
     @SuppressLint("NonConstantResourceId")
     public void onClick(View v) {
         switch (v.getId()) {
@@ -226,29 +221,29 @@ public class HardGame extends AppCompatActivity {
             case R.id.imageButton83:
                 game.click(6, 5);
                 break;
-            case R.id.button7:// Button to create a new puzzle (giving up)
+            case R.id.button7:
                 game = new GameController(buttons, moves, points, score);
-                while (game.hasWon()){ // Ensures a winning puzzle isn't used.
+                while (game.hasWon()){
                     game = new GameController(buttons, moves, points, score);
                 }
-                game.updateView(); // Updates the view
+                game.updateView();
                 break;
-            case R.id.button11: // Button to retry the puzzle
+            case R.id.button11:
                 game.retryBoard();
                 game.updateView();
                 break;
         }
-        if (game.hasWon()){ // If the user wins, a message is displayed.
-            mpWin.start(); // Plays a sound.
+        if (game.hasWon()){
+            mpWin.start();
             SharedPreferences prefs = this.getSharedPreferences("prefsKey", Context.MODE_PRIVATE);
-            int score = prefs.getInt("points", 0); // Retrieves the user's current score
+            int score = prefs.getInt("points", 0);
 
-            score = score + 50 + game.getBonusPoints(); // 50 points are awarded by default, with 5 extra for beating under the minimum number of moves
+            score = score + 50 + game.getBonusPoints();
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("points", score); // Replaces the score with the increased amount.
+            editor.putInt("points", score);
             editor.apply();
 
-            if (game.getBonusPoints() > 0){ Toast.makeText(getApplicationContext(),"You beat this Hard level within the minimum number of moves! +50 points.",Toast.LENGTH_LONG).show(); }
+            if (game.getBonusPoints() > 0){ Toast.makeText(getApplicationContext(),"You beat this Hard level! +55 points.",Toast.LENGTH_LONG).show(); }
             else { Toast.makeText(getApplicationContext(),"You beat this Hard level! +55 points.",Toast.LENGTH_LONG).show(); }
             this.score = score;
             game.updatePoints(score);

@@ -2,20 +2,26 @@ package com.example.gamestesting.game2048test;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gamestesting.Help;
 import com.example.gamestesting.R;
+import com.example.gamestesting.SelectorActivity;
 import com.example.gamestesting.game2048test.adapter.RecyclerAdapter;
 import com.example.gamestesting.game2048test.dbScores.ScoreDbHelper;
 
@@ -156,6 +162,7 @@ public class ScoreManagement  extends AppCompatActivity {
         ScoreDbHelper scoreDbHelper = new ScoreDbHelper(this,"scoreDb",null,1);
         SQLiteDatabase db = scoreDbHelper.getReadableDatabase();
 
+        @SuppressLint("Recycle")
         Cursor cursor = db.rawQuery("SELECT * FROM scores WHERE name = " + "'"+ name +"'"   ,null);
         if (cursor.moveToFirst()){
             do {
@@ -174,7 +181,8 @@ public class ScoreManagement  extends AppCompatActivity {
         ScoreDbHelper scoreDbHelper = new ScoreDbHelper(this,"scoreDb",null,1);
         SQLiteDatabase db = scoreDbHelper.getReadableDatabase();
 
-        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM scores WHERE score "+ rationalOp + " '"+ scoreSearch +"'"   ,null);
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("SELECT * FROM scores WHERE score "+ rationalOp + " '"+ scoreSearch +"'"   ,null);
         if (cursor.moveToFirst()){
             do {
                 Score score = new Score(cursor.getInt(0),cursor.getString(1), cursor.getInt(2),cursor.getString(3));
@@ -266,5 +274,34 @@ public class ScoreManagement  extends AppCompatActivity {
         dialog.setCancelable(true);
         dialog.show();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_bar, menu);
+        return true;
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.Select:
+                intent = new Intent(ScoreManagement.this, SelectorActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.Score:
+                intent = new Intent(ScoreManagement.this, ScoreManagement.class);
+                startActivity(intent);
+                return true;
+            case R.id.help:
+                intent = new Intent(ScoreManagement.this, Help.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 }
