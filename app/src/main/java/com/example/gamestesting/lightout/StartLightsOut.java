@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamestesting.R;
 
-public class StartLightOut extends AppCompatActivity {
+public class StartLightsOut extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class StartLightOut extends AppCompatActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                Intent intent = new Intent(StartLightOut.this, EasyGame.class);
+                Intent intent = new Intent(StartLightsOut.this, EasyGame.class);
                 startActivity(intent);
                 break;
             case R.id.button2:
@@ -28,7 +28,7 @@ public class StartLightOut extends AppCompatActivity {
                 startActivity(intent2);
                 break;
             case R.id.button3:
-                Intent intent3 = new Intent(StartLightOut.this, HardGame.class);
+                Intent intent3 = new Intent(StartLightsOut.this, HardGame.class);
                 startActivity(intent3);
                 break;
 

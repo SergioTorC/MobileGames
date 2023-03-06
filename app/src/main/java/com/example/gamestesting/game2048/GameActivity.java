@@ -48,11 +48,13 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        //Inicializamos la base de datos
         ScoreDbHelper scoreDbHelper = new ScoreDbHelper(this,"scoreDb",null,1);
         SQLiteDatabase db = scoreDbHelper.getReadableDatabase();
         db.close();
         scoreDbHelper.close();
 
+        // Se trata de una prueba de como cambiar el texto de un TextView y cambiarle el color de otra manera.
         TextView textViewGameTitle = findViewById(R.id.main_text);
         String first = "Join the number to get the ";
         String next = "<font color=\"#57534F\">2048!</font>";
@@ -63,16 +65,18 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         bestScore = findViewById(R.id.main_best_score);
         bestScore.setScore(getBestScore());
         matrixView = findViewById(R.id.matrix_view);
-        matrixView.setMoveListener((score, gameOver, newSquare) -> {
-            if (gameOver) {
+        matrixView.setMoveListener((score, gameOver, newSquare) -> { //Pasamos por parametro el score, gameOver y newSquare
+            if (gameOver) { // En caso de que haya perdido mostrará un mensaje de derrota y te preguntará de repetir
                 displayGameOverDialog();
             } else {
-                if (score > 0) {
+                if (score > 0) { // Añadira puntuación
                     actualScore.addScore(score);
                     if (actualScore.getScore() > bestScore.getScore()) {
+                        // En el caso de que la puntuación sea mayor que la mejor registrada, esta cambiará
                         bestScore.setScore(actualScore.getScore());
                     }
                     if (score >= 2048) {
+                        // Una vez supere o sea igual la Score actual a 2048, muestra el mensaje de victoria
                         displayCongratsDialog();
                     }
                 }
@@ -80,8 +84,7 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         });
 
 
-
-
+        // Creamos un cronometro y lo iniciamos
         chronometer.setBase(SystemClock.elapsedRealtime());
         chronometer.start();
 
@@ -122,6 +125,7 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         ScoreDbHelper scoreDbHelper = new ScoreDbHelper(this,"scoreDb",null,1);
         SQLiteDatabase db = scoreDbHelper.getReadableDatabase();
 
+        @SuppressLint("Recycle")
         Cursor cursor = db.rawQuery("SELECT * FROM scores ORDER BY score DESC" ,null);
 
         if (cursor.moveToFirst()){
@@ -135,8 +139,6 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
 
         return 0;
     }
-
-
 
     private void onNewGameClick(Score score) {
         if(score != null){
@@ -225,9 +227,6 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         scoreDbHelper.close();
 
     }
-
-
-
 
     @SuppressLint("ClickableViewAccessibility")
     @Override

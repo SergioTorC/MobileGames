@@ -57,16 +57,16 @@ public class Board {
         if (height >= board.length || width >= board[0].length || height < 0 || width < 0) {
             throw new IllegalArgumentException();
         }
-        if (height - 1 >= 0) {// Alterna la luz de arriba, si está en el tablero y está activa.
+        if (height - 1 >= 0) {// Alterna la luz de arriba, si está en el tablero.
             board[height - 1][width].toggleLight();
         }
-        if (height + 1 < board.length) { // Alterna la luz de abajo, si está en el tablero y está activa.
+        if (height + 1 < board.length) { // Alterna la luz de abajo, si está en el tablero.
             board[height + 1][width].toggleLight();
         }
-        if (width - 1 >= 0) { // Cambia la luz a la izquierda, si está en el tablero y está activa.
+        if (width - 1 >= 0) { // Cambia la luz a la izquierda, si está en el tablero.
             board[height][width - 1].toggleLight();
         }
-        if (width + 1 < board[0].length) { // Cambia la luz a la derecha, si está en el tablero y está activa.
+        if (width + 1 < board[0].length) { // Cambia la luz a la derecha, si está en el tablero.
             board[height][width + 1].toggleLight();
         }
 
@@ -75,9 +75,9 @@ public class Board {
     }
 
     public boolean hasWon() {
-        for (int i = 0; i < board.length; i++) { // Iteramos a través del tablero para verificar cada celda individualmente.
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j].getOn()) { // Si se encuentra una celda que está activa y apagada, inmediatamente devolvemos falso, ya que el usuario no ha ganado.
+        for (Cell[] cells : board) { // Iteramos a través del tablero para verificar cada celda individualmente.
+            for (Cell cell : cells) {
+                if (cell.getOn()) { // Si se encuentra una celda que está apagada, inmediatamente devolvemos falso, ya que el usuario no ha ganado.
                     return false;
                 }
             }

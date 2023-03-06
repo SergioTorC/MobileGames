@@ -62,8 +62,6 @@ public class ScoreManagement  extends AppCompatActivity {
         options.add("<");
         options.add(">");
 
-
-
         ArrayAdapter<String> optionsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
         optionsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchOptions.setAdapter(optionsAdapter);
@@ -75,8 +73,6 @@ public class ScoreManagement  extends AppCompatActivity {
 
         initViews();
         initValues();
-
-
 
         searchByName.setOnClickListener(v -> {
             if (!name.getText().toString().equals("")){
@@ -143,7 +139,8 @@ public class ScoreManagement  extends AppCompatActivity {
         ScoreDbHelper scoreDbHelper = new ScoreDbHelper(this,"scoreDb",null,1);
         SQLiteDatabase db = scoreDbHelper.getReadableDatabase();
 
-        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM scores",null);
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("SELECT * FROM scores",null);
         if (cursor.moveToFirst()){
             do {
                 Score score = new Score(cursor.getInt(0),cursor.getString(1), cursor.getInt(2),cursor.getString(3));

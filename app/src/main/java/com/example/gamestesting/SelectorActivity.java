@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamestesting.game2048.ScoreManagement;
 import com.example.gamestesting.game2048.SplashScreen;
-import com.example.gamestesting.lightout.StartLightOut;
+import com.example.gamestesting.lightout.StartLightsOut;
 
 public class SelectorActivity extends AppCompatActivity {
 
@@ -58,7 +58,7 @@ public class SelectorActivity extends AppCompatActivity {
         System.err.println(view.getId());
         switch (view.getId()){
             case R.id.imageButton3:
-                intent = new Intent(SelectorActivity.this, StartLightOut.class);
+                intent = new Intent(SelectorActivity.this, StartLightsOut.class);
                 startActivity(intent);
                 break;
             case R.id.imageButton4:

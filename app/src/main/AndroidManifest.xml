@@ -33,7 +33,7 @@
         <activity android:name="com.example.gamestesting.game2048.GameActivity" />
         <activity android:name="com.example.gamestesting.game2048.ScoreManagement" />
 
-        <activity android:name=".lightout.StartLightOut" />
+        <activity android:name=".lightout.StartLightsOut" />
         <activity android:name=".lightout.HardGame" />
         <activity android:name=".lightout.MediumGame" />
         <activity android:name=".lightout.EasyGame" />
